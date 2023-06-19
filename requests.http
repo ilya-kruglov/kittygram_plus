@@ -208,3 +208,19 @@ Content-Type: application/json
         {"name": "разбил вазу"}
     ]
 }
+
+###
+# Тестирование CHOICES
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Кеша",
+    "color": "White",
+    "birth_year": 2015,
+    "owner": 1,
+    "achievements": [
+        {"achievement_name": "поймал мышку"},
+        {"achievement_name": "разбил вазу"}
+    ]
+}
