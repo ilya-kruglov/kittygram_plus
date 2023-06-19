@@ -107,6 +107,9 @@ Content-Type: application/json
 # Получение всех объектов Cats
 GET http://127.0.0.1:8000/cats/
 ###
+# Получение одного объекта Cats
+GET http://127.0.0.1:8000/cats/1/
+###
 # Получение всех объектов Owners
 GET http://127.0.0.1:8000/owners/
 ###
@@ -124,7 +127,7 @@ Content-Type: application/json
     "owner": 1
 }
 ###
-# Добавление нескольких объектов Cats
+# Добавление нескольких объектов Cats (НЕ работает)
 POST http://127.0.0.1:8000/cats/
 Content-Type: application/json
 
@@ -148,3 +151,18 @@ Content-Type: application/json
         "owner": 1
     }
 ]
+###
+# Добавление одного объекта Cats
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Барсик",
+    "color": "White",
+    "birth_year": 2017,
+    "owner": 1,
+    "achievements": [
+        {"name": "поймал мышку"},
+        {"name": "разбил вазу"}
+    ]
+}
