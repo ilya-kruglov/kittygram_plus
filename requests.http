@@ -1,0 +1,150 @@
+# пример GET запроса
+GET http://127.0.0.1:8000/cats/
+###
+
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Pushiloch",
+    "color": "black",
+    "birth_year": 1988
+}
+###
+# 400 Bad Request
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Bulochka",
+    "color": "red",
+    "birth_year": 2005.07
+}
+###
+# Correct obj 3
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Bulochka",
+    "color": "red",
+    "birth_year": 2005
+}
+###
+# Delete objs
+DELETE http://127.0.0.1:8000/cats/
+###
+# many=True!!!
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+[
+    {
+        "name": "Стёпа",
+        "color": "белый",
+        "birth_year": 1971
+    },
+    {
+        "name": "Мурка",
+        "color": "рыжий",
+        "birth_year": 2010
+    },
+    {
+        "name": "Пушок",
+        "color": "чёрный",
+        "birth_year": 2018
+    }
+]
+
+
+###
+# Получение всех объектов БД
+GET http://127.0.0.1:8000/cats/
+###
+# View-class without many=True
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Loki",
+    "color": "red",
+    "birth_year": 2015
+}
+###
+# GET one object
+GET http://127.0.0.1:8000/cats/5/
+###
+# View-class: update one object
+PUT http://127.0.0.1:8000/cats/4/
+Content-Type: application/json
+
+{
+    "name": "Dart",
+    "color": "black",
+    "birth_year": 666
+}
+###
+# View-class: update one object partly
+PATCH  http://127.0.0.1:8000/cats/4/
+Content-Type: application/json
+
+{
+    "birth_year": 1666
+}
+###
+# Delete one object
+DELETE http://127.0.0.1:8000/cats/4/
+###
+# ViewSets + Router. Create 1st owner.
+POST  http://127.0.0.1:8000/owners/
+Content-Type: application/json
+
+{
+    "first_name": "Ilya",
+    "last_name": "Kruglov"
+}
+###
+# Получение всех объектов Cats
+GET http://127.0.0.1:8000/cats/
+###
+# Получение всех объектов Owners
+GET http://127.0.0.1:8000/owners/
+###
+# Получение одного объекта Owners
+GET http://127.0.0.1:8000/owners/1/
+###
+# Добавление одного объекта Cats
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Pushiloch",
+    "color": "black",
+    "birth_year": 1988,
+    "owner": 1
+}
+###
+# Добавление нескольких объектов Cats
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+[
+    {
+        "name": "Bulochka",
+        "color": "red",
+        "birth_year": 2005,
+        "owner": 1
+    },
+    {
+        "name": "Мурка",
+        "color": "рыжий",
+        "birth_year": 2010,
+        "owner": 1
+    },
+    {
+        "name": "Loki",
+        "color": "red",
+        "birth_year": 2015,
+        "owner": 1
+    }
+]
