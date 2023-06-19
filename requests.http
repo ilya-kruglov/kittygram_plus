@@ -166,3 +166,14 @@ Content-Type: application/json
         {"name": "разбил вазу"}
     ]
 }
+###
+# Добавление одного объекта Cats (специально сломанное)
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Лёва",
+    "color": "Mixed",
+    "birth_year": 2019,
+    "owner": 1
+}
