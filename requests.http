@@ -224,3 +224,7 @@ Content-Type: application/json
         {"achievement_name": "разбил вазу"}
     ]
 }
+
+###
+# Получение последник 5 объектов Cats с color='White'
+GET http://127.0.0.1:8000/cats/recent-white-cats/
