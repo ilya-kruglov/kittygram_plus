@@ -269,3 +269,44 @@ Authorization: token f6325ce5416becabcd90d188fb65b003d3e58e5a
 # Получение одного объекта Owners
 GET http://127.0.0.1:8000/owners/1/
 Authorization: Token f6325ce5416becabcd90d188fb65b003d3e58e5a
+
+
+###
+# Тестирование создания пользователя (Djoser + JWT)
+POST http://127.0.0.1:8000/auth/users/
+Content-Type: application/json
+
+{
+    "username": "kittygramJWT",
+    "password": "change_meJWT"
+}
+
+# HTTP/1.1 201 Created
+# ...
+# {
+#   "email": "",
+#   "username": "kittygramJWT",
+#   "id": 2
+# }
+
+###
+# Тестирование получения токена (Djoser + JWT)
+POST http://127.0.0.1:8000/auth/jwt/create/
+Content-Type: application/json
+
+{
+    "username": "kittygramJWT",
+    "password": "change_meJWT"
+}
+
+# HTTP/1.1 200 OK
+# ...
+# {
+#   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NzM0ODYzMywianRpIjoiMTU5ZGU3MzY3ZmQ1NGNlOTlmYmQwMDNmNGExYjk2N2QiLCJ1c2VyX2lkIjoyfQ.1cU7pV8yYirGAySdm4At8Y4I3irJX63Wfk3noXkQ7JE",
+#   "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg3MzQ4NjMzLCJqdGkiOiJhNjcxNjczOGMxOGY0OTZmYjZhY2FjN2EwZjNjYzQ4MiIsInVzZXJfaWQiOjJ9.UlM7TFNRc35M7sJ80YJ_pTQrA4F1-bCKw3-1M8W2nrM"
+# }
+
+###
+# Получение всех объектов Cats (Djoser + JWT)
+GET http://127.0.0.1:8000/cats/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg3MzQ4NjMzLCJqdGkiOiJhNjcxNjczOGMxOGY0OTZmYjZhY2FjN2EwZjNjYzQ4MiIsInVzZXJfaWQiOjJ9.UlM7TFNRc35M7sJ80YJ_pTQrA4F1-bCKw3-1M8W2nrM
