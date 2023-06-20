@@ -236,3 +236,36 @@ GET http://127.0.0.1:8000/mycats/1/
 ###
 # Получение всех объектов Cats через новый ViewSet (LightCatViewSet)
 GET http://127.0.0.1:8000/mycats/
+
+
+###
+# Тестирование получения токена (не JWT)
+POST http://127.0.0.1:8000/api-token-auth/
+Content-Type: application/json
+
+{
+    "username": "kittygram",
+    "password": "change_me"
+}
+
+# Authorization: token xxx
+# {
+#   "token": "f6325ce5416becabcd90d188fb65b003d3e58e5a"
+# }
+
+###
+# Получение всех объектов Cats
+GET http://127.0.0.1:8000/cats/
+Authorization: token f6325ce5416becabcd90d188fb65b003d3e58e5a
+###
+# Получение одного объекта Cats
+GET http://127.0.0.1:8000/cats/1/
+Authorization: Token f6325ce5416becabcd90d188fb65b003d3e58e5a
+###
+# Получение всех объектов Owners
+GET http://127.0.0.1:8000/owners/
+Authorization: token f6325ce5416becabcd90d188fb65b003d3e58e5a
+###
+# Получение одного объекта Owners
+GET http://127.0.0.1:8000/owners/1/
+Authorization: Token f6325ce5416becabcd90d188fb65b003d3e58e5a
