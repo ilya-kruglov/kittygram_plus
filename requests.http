@@ -228,3 +228,11 @@ Content-Type: application/json
 ###
 # Получение последник 5 объектов Cats с color='White'
 GET http://127.0.0.1:8000/cats/recent-white-cats/
+
+
+###
+# Получение одного объекта Cats через новый ViewSet (LightCatViewSet)
+GET http://127.0.0.1:8000/mycats/1/
+###
+# Получение всех объектов Cats через новый ViewSet (LightCatViewSet)
+GET http://127.0.0.1:8000/mycats/
